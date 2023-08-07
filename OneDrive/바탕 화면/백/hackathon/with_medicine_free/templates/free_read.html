@@ -1,0 +1,25 @@
+{% extends 'main.html' %}
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free_read</title>
+</head>
+
+<body>
+
+{% block content %}
+    <h1>Free_read</h1>
+    <hr>
+    {% for free_board in free_board %}
+        <h3><a href="{% url 'free_detail' free_board.id %}">{{ free_board.title }}</a></h3>
+        <p>{{ free_board.pub_date }}</p>
+        <p>{{ free_board.body }}</p>
+    {% endfor %}
+    <a href="{% url 'free_create' %}">글 작성하기</a>
+{% endblock %}
+
+</body>
+</html>
